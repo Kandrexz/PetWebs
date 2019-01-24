@@ -1,0 +1,72 @@
+﻿
+@model IEnumerable<PetWebs.Models.Cliente>
+  
+
+
+
+
+<p>
+    @Html.ActionLink("Nuevo Cliente", "NuevoCliente")
+</p>
+
+@using (Html.BeginForm("IndexHome", "Clientes", FormMethod.Get))
+{
+    <p style="margin-left:20px;">
+
+        @Html.TextBox("BuscarCliente", ViewBag.CurrentFilter as string)
+        <input type="submit" value="BuscarCliente" class="btn btn-outline-success my-2 my-sm-0" />
+    </p>
+
+
+}
+
+@using (Html.BeginForm("Details","Mascotas", FormMethod.Get))
+{
+    <table class="table table-borderless overflow-auto">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Rut)
+            </th>
+
+            <th>
+                @Html.DisplayNameFor(model => model.Nombre)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Apellido)
+            </th>
+            <th>
+                Vinculos
+            </th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Rut)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.Nombre)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Apellido)
+                </td>
+                <td>
+                    @Html.ActionLink("Asociar Mascota", "Details", "Mascotas", new { id = item.Rut })  |
+                    @Html.ActionLink("Details", "Details", new { id = item.Rut }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.Rut })
+                </td>
+            </tr>
+        }
+    </tbody>
+
+
+</table>
+}
+
+
+

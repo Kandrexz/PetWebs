@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="150eccbe8ea44c4da93a8db2564749c2" Name="Diagram1" ZoomLevel="85" >
+        <EntityTypeShape EntityType="PETWEBSModel.C__MigrationHistory" Width="1.5" PointX="0.75" PointY="0.75" />
+        <EntityTypeShape EntityType="PETWEBSModel.AspNetRoles" Width="1.5" PointX="5.25" PointY="1.875" />
+        <EntityTypeShape EntityType="PETWEBSModel.AspNetUserClaims" Width="1.5" PointX="9.75" PointY="4.5" />
+        <EntityTypeShape EntityType="PETWEBSModel.AspNetUserLogins" Width="1.5" PointX="9.75" PointY="7.25" />
+        <EntityTypeShape EntityType="PETWEBSModel.AspNetUsers" Width="1.5" PointX="7.5" PointY="4.625" />
+        <EntityTypeShape EntityType="PETWEBSModel.Atencion" Width="1.5" PointX="7.5" PointY="16" />
+        <EntityTypeShape EntityType="PETWEBSModel.Cliente" Width="1.5" PointX="0.75" PointY="11.5" />
+        <EntityTypeShape EntityType="PETWEBSModel.Contacto" Width="1.5" PointX="3" PointY="24.625" />
+        <EntityTypeShape EntityType="PETWEBSModel.Desparacitacion" Width="1.5" PointX="5.25" PointY="18.125" />
+        <EntityTypeShape EntityType="PETWEBSModel.Especie" Width="1.5" PointX="0.75" PointY="18.125" />
+        <EntityTypeShape EntityType="PETWEBSModel.Examen" Width="1.5" PointX="5.25" PointY="21.75" />
+        <EntityTypeShape EntityType="PETWEBSModel.Mascota" Width="1.5" PointX="3" PointY="13.125" />
+        <EntityTypeShape EntityType="PETWEBSModel.Raza" Width="1.5" PointX="0.75" PointY="15.375" />
+        <EntityTypeShape EntityType="PETWEBSModel.Sucursal" Width="1.5" PointX="5.25" PointY="5.125" />
+        <EntityTypeShape EntityType="PETWEBSModel.sysdiagrams" Width="1.5" PointX="7.75" PointY="0.75" />
+        <EntityTypeShape EntityType="PETWEBSModel.Ubicacion" Width="1.5" PointX="3" PointY="9.875" />
+        <EntityTypeShape EntityType="PETWEBSModel.Vacuna" Width="1.5" PointX="5.25" PointY="10.125" />
+        <EntityTypeShape EntityType="PETWEBSModel.Veterinaria" Width="1.5" PointX="3" PointY="5.375" />
+        <AssociationConnector Association="PETWEBSModel.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" />
+        <AssociationConnector Association="PETWEBSModel.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" />
+        <AssociationConnector Association="PETWEBSModel.FK__AspNetUse__Sucur__6EF57B66" />
+        <AssociationConnector Association="PETWEBSModel.FK__Atencion__Despar__628FA481" />
+        <AssociationConnector Association="PETWEBSModel.FK__Atencion__Examen__619B8048" />
+        <AssociationConnector Association="PETWEBSModel.FK__Atencion__Mascot__60A75C0F" />
+        <AssociationConnector Association="PETWEBSModel.FK__Atencion__Sucurs__5FB337D6" />
+        <AssociationConnector Association="PETWEBSModel.FK__Atencion__Vacuna__6383C8BA" />
+        <AssociationConnector Association="PETWEBSModel.FK__Contacto__Rut__25869641" />
+        <AssociationConnector Association="PETWEBSModel.FK__Mascota__Rut__30F848ED" />
+        <AssociationConnector Association="PETWEBSModel.FK__Ubicacion__Rut__29572725" />
+        <AssociationConnector Association="PETWEBSModel.FK__Desparaci__Masco__5629CD9C" />
+        <AssociationConnector Association="PETWEBSModel.FK__Mascota__Especie__31EC6D26" />
+        <AssociationConnector Association="PETWEBSModel.FK__Raza__Especie__2E1BDC42" />
+        <AssociationConnector Association="PETWEBSModel.FK__Examen__Mascota__5AEE82B9" />
+        <AssociationConnector Association="PETWEBSModel.FK__Mascota__Raza__32E0915F" />
+        <AssociationConnector Association="PETWEBSModel.FK__Vacuna__Mascota__5165187F" />
+        <AssociationConnector Association="PETWEBSModel.FK__Sucursal__Veteri__37A5467C" />
+        <AssociationConnector Association="PETWEBSModel.AspNetUserRoles" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

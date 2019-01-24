@@ -1,17 +1,49 @@
 ﻿@{
-    ViewBag.Title = "Contact";
+    ViewBag.Title = "Contacto";
 }
-<h2>@ViewBag.Title.</h2>
-<h3>@ViewBag.Message</h3>
+<h2>@ViewBag.Title</h2>
 
-<address>
-    One Microsoft Way<br />
-    Redmond, WA 98052-6399<br />
-    <abbr title="Phone">P:</abbr>
-    425.555.0100
-</address>
 
-<address>
-    <strong>Support:</strong>   <a href="mailto:Support@example.com">Support@example.com</a><br />
-    <strong>Marketing:</strong> <a href="mailto:Marketing@example.com">Marketing@example.com</a>
-</address>
+<form method="post" enctype="multipart/form-data" style="width:600px;">
+    <div>
+        <label>Ingrese su correo</label>
+        <input class="form-control" type="email" name="De" placeholder="Email" />
+    </div>
+    <br />
+    <div>
+        <label>Empresa</label>
+        <input class="form-control" type="text" name="Empresa" placeholder="Ingrese el nombre de la empresa" />
+    </div>
+    <div>
+        <label>Motivo</label>
+        <input class="form-control" type="text" name="Motivo" placeholder="Motivo de su consulta" />
+    </div>
+    <div>
+        <label>Fono</label>
+        <input class="form-control" type="number" name="Fono" placeholder="Ingrese el Fono" />
+    </div>
+    <div>
+        <label>Mensaje</label>
+        <br />
+        <textarea style="width:600px; height:150px;" name="Mensaje" placeholder="Escriba su mensaje"></textarea>
+    </div>
+    <br />
+    <!--
+    <div>
+        <input type="file" name="Fichero" class="btn-default" />
+    </div>
+    -->
+    <br />
+    <div>
+        <button id="enviar" class="btn-primary" type="submit">Enviar Correo</button>
+    </div>
+
+
+
+</form>
+<h3 style="color:blue">
+    @ViewBag.Message
+</h3>
+<h3 style="color:red">
+    @ViewBag.Error
+</h3>

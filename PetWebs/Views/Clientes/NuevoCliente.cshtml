@@ -1,0 +1,172 @@
+﻿@model PetWebs.Models.Cliente
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - Mi aplicación ASP.NET</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+
+    <style>
+        li {
+            list-style: none;
+            height: 30px;
+            text-align: center;
+        }
+
+        #Menu {
+            background-color: teal;
+            color: white;
+            max-width: 100%;
+        }
+
+        body {
+            background: url(../../Content/Img/Fondo.jpg);
+            background-attachment: fixed;
+            background-size: 100%;
+        }
+    </style>
+</head>
+<body>
+
+    @Html.Partial("_LoginPartial")
+    @if (Request.IsAuthenticated)
+    {
+
+        <div id="Menu">
+
+
+
+
+            <div class="row ">
+                <div class="col-2 " style="background-color:teal;">
+
+                    <br />
+                    <img class="rounded mx-auto d-block" src="~/Content/Img/Icon Menu.png " style="width:100px; height:100px; " />
+
+                    <br />
+                    <ul style="list-style:none; " class="dropdown-item">
+                        <li>
+                            @Html.ActionLink("Inicio", "Index", "Home", null, new { style = " text-decoration:none; color: white;;" })
+                        </li>
+                    </ul>
+                    <ul style="list-style:none; " class="dropdown-item">
+                        <li>
+                            @Html.ActionLink("Mascotas", "Index", "VW_NuevaFicha", null, new { style = " text-decoration:none; color: white;;" })
+                        </li>
+                    </ul>
+                    <ul style="list-style:none; " class="dropdown-item">
+                        <li>
+                            @Html.ActionLink("Nuevo Cliente", "NuevoCliente", "Clientes", null, new { style = " text-decoration:none; color: white;" })
+                        </li>
+                    </ul>
+                    <ul style="list-style:none; " class="dropdown-item">
+                        <li>
+                            @Html.ActionLink("Nueva Mascota", "Create", "Mascotas", null, new { style = " text-decoration:none; color: white;" })
+                        </li>
+                    </ul>
+                    <ul style="list-style:none; " class="dropdown-item">
+                        <li>
+                            @Html.ActionLink("Defunción", "Index", "VW_Defunciones", null, new { style = " text-decoration:none; color: white;" })
+                        </li>
+                    </ul>
+                    <ul style="list-style:none; " class="dropdown-item">
+                        <li>
+                            @Html.ActionLink("Leyes", "Leyees", "Home", null, new { style = " text-decoration:none; color: white;" })
+                        </li>
+                    </ul>
+
+                    <ul style="list-style:none; " class="dropdown-item">
+                        <li>
+                            <a href="javascript:document.getElementById('logoutForm').submit()" style="color:white;">Cerrar sesión</a>
+                        </li>
+                    </ul>
+
+
+
+                </div>
+
+                <div class="col-lg-10" style="background-color: rgba(255, 255, 255, 0.89) ;  padding:20px;">
+
+                    <div class="row justify-content-center">
+                        <div class="col-6 shadow p-3 mb-5  rounded text-black-50" >
+                            @using (Html.BeginForm())
+                            {
+                                @Html.AntiForgeryToken()
+                            <h3>Agregar Cliente </h3>
+                                <div class="form-horizontal">
+
+                                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.Rut, htmlAttributes: new { @class = "control-label col-md-2" })
+                                        <div class="col-md-10">
+                                            @Html.EditorFor(model => model.Rut, new { htmlAttributes = new { @class = "form-control" } })
+                                            @Html.ValidationMessageFor(model => model.Rut, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.Nombre, htmlAttributes: new { @class = "control-label col-md-2" })
+                                        <div class="col-md-10">
+                                            @Html.EditorFor(model => model.Nombre, new { htmlAttributes = new { @class = "form-control" } })
+                                            @Html.ValidationMessageFor(model => model.Nombre, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.Apellido, htmlAttributes: new { @class = "control-label col-md-2" })
+                                        <div class="col-md-10">
+                                            @Html.EditorFor(model => model.Apellido, new { htmlAttributes = new { @class = "form-control" } })
+                                            @Html.ValidationMessageFor(model => model.Apellido, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <div class="col-md-offset-2 col-md-10">
+                                            <input type="submit" value="Crear" class="btn btn-default" />
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <h3>
+                                    @ViewBag.Guardado
+                                </h3>
+
+                            }
+                        </div>
+
+
+                    </div>
+
+
+                </div>
+
+
+
+                <br />
+                <br />
+
+            </div>
+
+        </div>
+
+
+        }
+
+
+
+
+
+
+        @Scripts.Render("~/bundles/jquery")
+        @Scripts.Render("~/bundles/bootstrap")
+
+
+
+
+
+    </body>
+</html>

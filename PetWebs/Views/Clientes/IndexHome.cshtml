@@ -1,0 +1,233 @@
+﻿
+
+
+
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - Mi aplicación ASP.NET</title>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+
+    <style>
+        li {
+            list-style: none;
+            height: 30px;
+            text-align: center;
+        }
+
+        body {
+            background: url(../../Content/Img/Fondo.jpg);
+            background-attachment: fixed;
+            background-size: 100%;
+        }
+
+        #Menu {
+            height: 100%;
+        }
+    </style>
+
+</head>
+<body>
+
+    @Html.Partial("_LoginPartial")
+    @if (Request.IsAuthenticated)
+    {
+
+        <div id="Menu">
+
+
+
+
+            <div class="row ">
+                <div class="col-2 " style="background-color:teal;">
+
+                    <br />
+                    <img class="rounded mx-auto d-block" src="~/Content/Img/Icon Menu.png " style="width:100px; height:100px; " />
+
+                    <br />
+                    <ul style="list-style:none; " class="dropdown-item">
+                        <li>
+                            @Html.ActionLink("Home", "Index", "Home", null, new { style = " text-decoration:none; color: white;;" })
+                        </li>
+                    </ul>
+                    <ul style="list-style:none; " class="dropdown-item">
+                        <li>
+                            @Html.ActionLink("Mascotas*", "Index", "VW_NuevaFicha", null, new { style = " text-decoration:none; color: white;;" })
+                        </li>
+                    </ul>
+                    <ul style="list-style:none; " class="dropdown-item">
+                        <li>
+                            @Html.ActionLink("Nuevo Cliente", "NuevoCliente", "Clientes", null, new { style = " text-decoration:none; color: white;" })
+                        </li>
+                    </ul>
+                    <ul style="list-style:none; " class="dropdown-item">
+                        <li>
+                            @Html.ActionLink("Nueva Mascota*", "Create", "Mascotas", null, new { style = " text-decoration:none; color: white;" })
+                        </li>
+                    </ul>
+                    <ul style="list-style:none; " class="dropdown-item">
+                        <li>
+                            @Html.ActionLink("Defunción*", "Index", "VW_Defunciones", null, new { style = " text-decoration:none; color: white;" })
+                        </li>
+                    </ul>
+                    <ul style="list-style:none; " class="dropdown-item">
+                        <li>
+                            @Html.ActionLink("Leyes*", "Leyees", "Home", null, new { style = " text-decoration:none; color: white;" })
+                        </li>
+                    </ul>
+
+                    <ul style="list-style:none; " class="dropdown-item">
+                        <li>
+                            <a href="javascript:document.getElementById('logoutForm').submit()" style="color:white;">Cerrar sesión</a>
+                        </li>
+                    </ul>
+
+
+
+                </div>
+
+                <div class="col-lg-10" style="background-color: rgba(255, 255, 255, 0.89) ; max-height: 100%; padding:20px;">
+                    <br />
+                    <div class="row justify-content-center">
+                        <div class="col-lg-5  shadow p-3 mb-5  rounded">
+
+
+                            @model IEnumerable<PetWebs.Models.Cliente>
+
+                            <p>
+                                @Html.ActionLink("Nuevo Cliente", "Create")
+                            </p>
+
+                            @using (Html.BeginForm("IndexHome", "Clientes", FormMethod.Get))
+                            {
+                                <p style="margin-left:20px;">
+                                    @Html.TextBox("BuscarCliente", ViewBag.CurrentFilter as string)
+                                    <input type="submit" value="BuscarCliente" class="btn btn-outline-success my-2 my-sm-0" />
+                                </p>
+
+
+                            }
+
+
+                            <table class="table table-borderless overflow-auto">
+                                <thead>
+                                    <tr>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.Nombre)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.Apellido)
+                                        </th>
+                                        <th>
+                                            Vinculos
+                                        </th>
+                                    </tr>
+                                </thead>
+
+                                <tbody>
+                                    @foreach (var item in Model)
+                                    {
+                                        <tr>
+
+
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.Nombre)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.Apellido)
+                                            </td>
+                                            <td>
+                                                @Html.ActionLink("Edit", "Edit", new { id = item.Rut }) |
+                                                @Html.ActionLink("Details", "Details", new { id = item.Rut }) |
+                                                @Html.ActionLink("Delete", "Delete", new { id = item.Rut })
+                                            </td>
+
+                                        </tr>
+                                    }
+                                </tbody>
+
+
+                            </table>
+                        </div>
+                        <div class="col-1">
+
+                        </div>
+                        <div class="col-lg-6  shadow p-3 mb-5  rounded">
+
+                        </div>
+                    </div>
+                    <br />
+
+                    <br />
+
+                    <div class="row  justify-content-center">
+                        <div class="col-lg-6 ">
+                            <div class="card">
+
+                                <div class="card-body text-center text-white  " style=" background-color: rgba(0, 128, 128, 0.75); border-radius: 10px; ">
+                                    <h5 class="card-title">Ley 20.380</h5>
+                                    <p class="card-text">
+                                        Artículo 1°.- Esta ley establece normas destinadas a conocer, proteger y respetar a los animales, como seres vivos
+                                        y parte de la naturaleza, con el fin de darles un trato adecuado y evitarles sufrimientos innecesarios.
+
+                                        El reglamento definirá las distintas categorías de animales domésticos y silvestres, según especie.
+                                    </p>
+                                    <a href="https://www.leychile.cl/Navegar?idNorma=1006858" class="btn btn-primary">Ver Mas</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 ">
+                            <div class="card">
+
+                                <div class="card-body text-center text-white overflow-auto" style=" background-color: rgba(0, 128, 128, 0.75); border-radius: 10px; height: 227px; ">
+                                    <h5 class="card-title">Ley 21.020</h5>
+                                    <p>
+                                        Artículo 1°.- Esta ley tiene por objeto establecer normas destinadas a:<br />
+
+                                        1) Determinar las obligaciones y derechos de los responsables de animales de compañía.<br />
+                                        2) Proteger la salud y el bienestar animal mediante la tenencia responsable.<br />
+                                        3) Proteger la salud pública, la seguridad de las personas, el medio ambiente y las áreas naturales
+                                        protegidas, aplicando medidas para el control de la población de mascotas o animales de compañía.<br />
+                                        4) Regular la responsabilidad por los daños a las personas y a la propiedad que sean consecuencia
+                                        de la acción de mascotas o animales de compañía.<br />
+                                    </p>
+                                    <a href="https://www.leychile.cl/Navegar?idNorma=1106037" class="btn btn-primary">Ver Mas</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <br />
+                <br />
+
+            </div>
+
+        </div>
+
+
+
+
+        @Scripts.Render("~/bundles/jquery")
+        @Scripts.Render("~/bundles/bootstrap")
+
+    }
+
+
+
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+</body>
+</html>
+
+
+

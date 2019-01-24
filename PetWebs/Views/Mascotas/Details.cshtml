@@ -1,0 +1,123 @@
+﻿@model PetWebs.Models.Mascota
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Mascota</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Sexo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Sexo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Peso)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Peso)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Color)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Color)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FechaNacimiento)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FechaNacimiento)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Esterilizado)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Esterilizado)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Defuncion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Defuncion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FechaDef)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FechaDef)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CausaDef)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CausaDef)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ObserDef)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ObserDef)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Cliente.Nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Cliente.Nombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Especie1.Tipo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Especie1.Tipo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Raza1.Nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Raza1.Nombre)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Microchip }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
